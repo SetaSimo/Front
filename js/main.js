@@ -45,14 +45,15 @@ window.onload = function createContentFromJson() {
 
       var newWorkplace = document.createElement('newWorkplace');
       newWorkplace.className = "workplace-picture col";
-      newWorkplace.setAttribute("id", jsonInfo[i].Id);
+      //newWorkplace.setAttribute("id", jsonInfo[i].Id);
 
-      if (jsonInfo[i].IsReserved) {
+      if (jsonInfo[i].IsReserved == "false") {
         var workplaceImg = new Image(150, 150);
         workplaceImg.src = "http://placehold.jp/150x150.png";
+        workplaceImg.addEventListener('click', reservePlace, false)
       }
       else {
-        var workplaceImg = document.createElement("activeWorkplacePicture");
+        var workplaceImg = new Image(150, 150);
         workplaceImg.src = "http://placehold.jp/100f1f/f2f2f2/150x150.png";
       }
 
@@ -65,19 +66,12 @@ window.onload = function createContentFromJson() {
 
 
 
-async function reservePlace(email, password, response) {
+function reservePlace(evt) {
+  // response = await fetch("/api/ValuesApi/Autentification?login=" + email.value + "&password=" + password.value, {
+  //   method: "post",
+  //   headers: { "Accept": "application/json" }
+  // });
 
-  response = await fetch("/api/ValuesApi/Autentification?login=" + email.value + "&password=" + password.value, {
-    method: "post",
-    headers: { "Accept": "application/json" }
-  });
-
-  const error = await response.json();
-
-  if (response.status == 200) {
-    alert("Place was reserved");
-  }
-  else {
-    alert(JSON.stringify(error));
-  }
+  console.log(evt.currentTarget.src);
+  evt.currentTarget.src = "http://placehold.jp/100f1f/f2f2f2/150x150.png";
 }
