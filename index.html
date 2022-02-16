@@ -8,41 +8,31 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="./css/site.css" />
+  <link rel="stylesheet" href="./css/login.css" />
 </head>
 
 <body>
-
-
-
   <div class="row">
-    <div class="col-2">
-      <button class="openbtn" id="Openbtn" onclick="openNav()">☰ Sidepanel</button>
-      <div id="Sidepanel" class="sidepanel">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
-      </div>
+    <div class="col-4">
     </div>
-    <div class="col">
-      <div class="row">
-        <div class="col-12 center-text">
-          Some info about places
-        </div>
-      </div>
-      <div class="row center" id="workplaceSelection">
-        <!-- picture creation -->
-      </div>
+    <div class="col-4">
+  <div class="div-to-center">
+    <form class="login-form">
+      <h6>Email:</h6>
+      <input type="email" id="email" name="email" required minlength="4" maxlength="20" size="15%">
+      <h6>Password:</h6>
+      <input type="text" id="password" name="password" required minlength="4" maxlength="20" size="15%"><br><br>
+      <button type="button" onclick="login()" class="btn btn-dark">Log in</button><br><br>
+      <a href="#">forgor password</a>
+    </form>
+    <div class="col-4">
     </div>
   </div>
-
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="./lib/jquery/dist/jquery.min.js"></script>
   <script src="./lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="./js/main.js"></script>
+  <script src="./js/login.js"></script>
 </body>
 
 </html>
