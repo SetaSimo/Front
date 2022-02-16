@@ -32,20 +32,19 @@ window.onload = function createContentFromJson() {
 
   floorsInfo = [
     {
-      "FloorName": "1",
-      "FloorId": "22"
+      "FloorName": "1"
     },
     {
-      "FloorName": "2",
-      "FloorId": "3"
+      "FloorName": "2"
     },
     {
-      "FloorName": "4",
-      "FloorId": "12"
+      "FloorName": "3"
     },
     {
-      "FloorName": "5",
-      "FloorId": "312"
+      "FloorName": "4"
+    },
+    {
+      "FloorName": "5"
     }
   ]
   floorCreation(floorsInfo);
@@ -83,7 +82,7 @@ function floorCreation(floorsToAdd) {
   var selectButton = document.getElementById("floor")
   for (var i in floorsToAdd) {
     var opt = document.createElement('option');
-    opt.value = floorsToAdd[i].FloorId;
+    opt.value = floorsToAdd[i].FloorName;
     opt.innerHTML = floorsToAdd[i].FloorName;
     selectButton.appendChild(opt);
   }
@@ -97,7 +96,7 @@ function showPlaceInfo(evt) {
 }
 
 function reservePlace(evt) {
-  if (confirm("confirm your action")) {
+  if (confirm("Would you like to book this place?")) {
     evt.currentTarget.src = "http://placehold.jp/100f1f/f2f2f2/250x250.png";
     evt.currentTarget.removeEventListener('click', reservePlace)
   }

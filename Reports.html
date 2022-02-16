@@ -8,35 +8,64 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="./css/site.css" />
+  <link rel="stylesheet" href="./css/main.css" />
+  <link rel="stylesheet" href="./css/myWorkplace.css" />
+  <!-- google charts -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Day', 'Hours'],
+        ['16.10', 5],
+        ['17.10', 11],
+      ]);
+
+      var options = {
+        title: 'Some metrics',
+        curveType: 'function',
+        legend: { position: 'bottom' }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+  </script>
+
+
+
 </head>
 
 <body>
-
+  <div class="row heder-logo">
+    <div class="col-1">
+      <h3>Solberg hotdesk</h3>
+    </div>
+    <div class="col-8">
+    </div>
+    <div class="col-1">
+      <button type="button" onclick="Logout()" class="btn btn-dark">Log out</button><br><br>
+    </div>
+  </div>
 
 
   <div class="row">
-    <div class="col-2">
-      <button class="openbtn" id="Openbtn" onclick="openNav()">☰ Sidepanel</button>
+    <div class="col-2 Left-panel">
       <div id="Sidepanel" class="sidepanel">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="./MyWork.html">My work</a>
-        <a href="./descReservation.html">Book Desk</a>
-        <a href="#">Book meeting room</a>
-        <a href="#">My team</a>
+        <a href="./MyWork.html" class="">My work</a><br>
+        <a href="./descReservation.html">Book Desk</a><br>
+        <a href="#">Book meeting room</a><br>
+        <a href="#">My team</a><br>
         <a href="./Reports.html">Reports</a>
       </div>
     </div>
-    <div class="col">
-      <div class="row">
-        <div class="col-12 center-text">
-          Some info about places
-        </div>
-      </div>
-      <div class="row center" id="workplaceSelection">
-        <!-- picture creation -->
-      </div>
+    <div class="col-10 left-line">
+      <div id="chart_div"></div>
     </div>
+
   </div>
 
   <!-- Optional JavaScript -->
@@ -44,6 +73,7 @@
   <script src="./lib/jquery/dist/jquery.min.js"></script>
   <script src="./lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./js/main.js"></script>
+  <script src="./js/myWorkplace.js"></script>
 </body>
 
 </html>
