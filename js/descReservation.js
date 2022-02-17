@@ -1,3 +1,5 @@
+var userChooise;
+
 window.onload = function createContentFromJson() {
   // jsonInfo = await fetch("", {
   //   method: "get",
@@ -50,28 +52,31 @@ window.onload = function createContentFromJson() {
   floorCreation(floorsInfo);
 
   var creationPlace = document.getElementById('workplaceSelection');
-  for (let e = 0; e < 6; e++) {
+  for (let e = 0; e < 10; e++) {
     for (var i in jsonInfo) {
 
-      var newWorkplace = document.createElement('newWorkplace');
+      var newWorkplace = document.createElement('div');
       newWorkplace.className = "workplace-picture col-2";
       //newWorkplace.setAttribute("id", jsonInfo[i].Id);
 
-      var workplaceInfo = document.createElement('span')
-      workplaceInfo.innerHTML = jsonInfo[i].PlaceName;
-      workplaceInfo.innerHTML = jsonInfo[i].ReserveTime;
+      var workplaceImg = new Image(250, 250);
+      workplaceImg.title = "dada";
 
       if (jsonInfo[i].IsReserved == "false") {
-        var workplaceImg = new Image(250, 250);
-        workplaceImg.src = "https://placehold.jp/250x250.png";
+
+        workplaceImg.id = jsonInfo[i].Id
+        workplaceImg.src = "https://placehold.jp/008044/ffffff/250x250.png";
         workplaceImg.addEventListener('click', reservePlace, false)
       }
+      else if (jsonInfo[i].IsReserved == "keep") {
+        workplaceImg.src = "https://placehold.jp/250x250.png";
+      }
       else {
-        var workplaceImg = new Image(250, 250);
         workplaceImg.src = "https://placehold.jp/3d4070/ffffff/250x250.png";
       }
 
-      workplaceImg.addEventListener('mouseenter', showPlaceInfo, false)
+
+
       newWorkplace.appendChild(workplaceImg);
       creationPlace.appendChild(newWorkplace);
     }
@@ -90,14 +95,33 @@ function floorCreation(floorsToAdd) {
 
 function showPlaceInfo(evt) {
 
-  var popup = evt.currentTarget;
-  popup.classList.toggle("show");
+  evt.currentTarget.getElementsByClassName(names);
 
 }
 
 function reservePlace(evt) {
-  if (confirm("Would you like to book this place?")) {
-    evt.currentTarget.src = "http://placehold.jp/100f1f/f2f2f2/250x250.png";
-    evt.currentTarget.removeEventListener('click', reservePlace)
+  if (userChooise == null) {
+    userChooise = evt.currentTarget.id;
+    var target = document.getElementById(userChooise);
+    target.src = "http://placehold.jp/100f1f/f2f2f2/250x250.png";
+  } else {
+    var target = document.getElementById(userChooise);
+    target.src = "https://placehold.jp/008044/ffffff/250x250.png";
+
+    userChooise = evt.currentTarget.id;
+    var target = document.getElementById(userChooise);
+    target.src = "http://placehold.jp/100f1f/f2f2f2/250x250.png";
   }
+
+
+}
+function reserveConfirm() {
+  console.log(userChooise);
+  if (confirm("Would you like to book this place?")) {
+    var target = document.getElementById(userChooise);
+    target.src = "https://placehold.jp/250x250.png";
+    target.removeEventListener('click', reservePlace)
+    userChooise = null;
+  }
+
 }

@@ -1,3 +1,4 @@
+
 window.onload = function showWorkerReservations() {
     var currnetDate = new Date; // get current date
     var stringWeek = createWeek(currnetDate);
@@ -82,7 +83,7 @@ window.onload = function showWorkerReservations() {
 function deleteReservation(evt) {
     var divToDelete = document.getElementById(evt.currentTarget.id);
 
-    for (let e = 0; e < 4; e++) {
+    for (var e in divToDelete) {
         var divToDelete = document.getElementById(evt.currentTarget.id);
         divToDelete.remove();
     }
