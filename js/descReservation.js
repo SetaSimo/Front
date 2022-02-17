@@ -47,6 +47,9 @@ window.onload = function createContentFromJson() {
     },
     {
       "FloorName": "5"
+    },
+    {
+      "FloorName": "Roof"
     }
   ]
   floorCreation(floorsInfo);
@@ -59,20 +62,20 @@ window.onload = function createContentFromJson() {
       newWorkplace.className = "workplace-picture col-2";
       //newWorkplace.setAttribute("id", jsonInfo[i].Id);
 
-      var workplaceImg = new Image(250, 250);
+      var workplaceImg = new Image(200, 200);
       workplaceImg.title = "dada";
 
       if (jsonInfo[i].IsReserved == "false") {
 
         workplaceImg.id = jsonInfo[i].Id
-        workplaceImg.src = "https://placehold.jp/008044/ffffff/250x250.png";
+        workplaceImg.src = "https://placehold.jp/008044/ffffff/200x200.png";
         workplaceImg.addEventListener('click', reservePlace, false)
       }
       else if (jsonInfo[i].IsReserved == "keep") {
-        workplaceImg.src = "https://placehold.jp/250x250.png";
+        workplaceImg.src = "https://placehold.jp/200x200.png";
       }
       else {
-        workplaceImg.src = "https://placehold.jp/3d4070/ffffff/250x250.png";
+        workplaceImg.src = "https://placehold.jp/3d4070/ffffff/200x200.png";
       }
 
 
@@ -103,14 +106,14 @@ function reservePlace(evt) {
   if (userChooise == null) {
     userChooise = evt.currentTarget.id;
     var target = document.getElementById(userChooise);
-    target.src = "http://placehold.jp/100f1f/f2f2f2/250x250.png";
+    target.src = "http://placehold.jp/100f1f/f2f2f2/200x200.png";
   } else {
     var target = document.getElementById(userChooise);
-    target.src = "https://placehold.jp/008044/ffffff/250x250.png";
+    target.src = "https://placehold.jp/008044/ffffff/200x200.png";
 
     userChooise = evt.currentTarget.id;
     var target = document.getElementById(userChooise);
-    target.src = "http://placehold.jp/100f1f/f2f2f2/250x250.png";
+    target.src = "http://placehold.jp/100f1f/f2f2f2/200x200.png";
   }
 
 
@@ -119,7 +122,7 @@ function reserveConfirm() {
   console.log(userChooise);
   if (confirm("Would you like to book this place?")) {
     var target = document.getElementById(userChooise);
-    target.src = "https://placehold.jp/250x250.png";
+    target.src = "https://placehold.jp/200x200.png";
     target.removeEventListener('click', reservePlace)
     userChooise = null;
   }
