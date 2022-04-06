@@ -1,12 +1,21 @@
-.button-to-right{
+.button-to-right {
     float: right;
 }
+
 .workplace-center {
     padding-top: 5%;
     align-items: center;
     align-content: center;
     text-align: center;
 }
-.left-line{
+
+.left-line {
     border-left: 2px solid #000000;
+}
+
+.workplace-decoratots {
+    text-align: left;
+    font-size: large;
+    padding-top: 1%;
+    /* border-bottom: 2px solid #000000; */
 }

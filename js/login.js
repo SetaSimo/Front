@@ -1,9 +1,25 @@
-async function login(email, password) {
-  // response = await fetch("https:/localhost:5001/api/ValuesApi/Autentification?login=" + email.value + "&password=" + password.value, {
-  //   method: "post",
-  //   headers: { "Accept": "application/json" }
-  // });
-  window.location.href = "file:///C:/Users/Seon/Downloads/Front/MyWork.html";
+var url = "https://localhost:44344";
+
+async function login(userEmail, userPassword) {
+
+  var response = await fetch(url + "/api/authorize/LogIn", {
+    method: "POST",
+    credentials: "include",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      email: userEmail.value,
+      password: userPassword.value
+    })
+  });
+
+  if (response.status == 200) {
+    window.location.href = "./MyWork.html";
+  }
+  else {
+    alert(response.value);
+  }
 }
 
 function showPassword() {

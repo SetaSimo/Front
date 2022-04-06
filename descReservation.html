@@ -2,11 +2,10 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
+
   <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="./css/main.css" />
   <link rel="stylesheet" href="./css/reservePlace.css" />
@@ -14,8 +13,8 @@
 
 <body>
   <div class="row heder-logo">
-    <div class="col-2">
-      <h3>Solberg hotdesk</h3>
+    <div class="col-1">
+      <h3 class="solbergText">Solberg hotdesk</h3>
     </div>
     <div class="col-8">
     </div>
@@ -34,22 +33,25 @@
       </div>
     </div>
     <div class="col">
-      <div class="row">
+      <div class="row center">
         <div class="col-12 center-text">
+          <select id="locations"></select>&nbsp&nbsp&nbsp&nbsp&nbsp
           <select id="floor"></select>&nbsp&nbsp&nbsp&nbsp&nbsp
-          <input type="date" id="date">&nbsp&nbsp&nbsp&nbsp&nbsp
-          <input type="time" id="startTime">&nbsp&nbsp&nbsp&nbsp&nbsp
-          <input type="time" id="EndTime">&nbsp&nbsp&nbsp&nbsp&nbsp
-          <button type="button" onclick="reserveConfirm()" class="btn btn-dark" size="15%">Log in</button>
+          <input type="date" id="startDate" min="">&nbsp&nbsp&nbsp&nbsp&nbsp
+          <input type="time" id="startTime" min="">&nbsp&nbsp&nbsp&nbsp&nbsp
+
+          <input type="date" id="endDate" min="">&nbsp&nbsp&nbsp&nbsp&nbsp
+          <input type="time" id="endTime" min="">&nbsp&nbsp&nbsp&nbsp&nbsp
+
+          <button type="button" onclick="reserveConfirm()" class="btn btn-dark" size="15%">Book place</button>
         </div><br><br>
-        <div class="row center" id="workplaceSelection">
+        <div class="row center table-selection" id="workplaceSelection">
           <!-- picture creation -->
         </div>
       </div>
     </div>
   </div>
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
   <script src="./lib/jquery/dist/jquery.min.js"></script>
   <script src="./lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./js/descReservation.js"></script>
@@ -57,5 +59,3 @@
 </body>
 
 </html>
-
-<!-- <img src="http://placehold.jp/100f1f/f2f2f2/150x150.png" class="">

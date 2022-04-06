@@ -1,6 +1,27 @@
 body {
     background-color: #ffffff;
     color: #1f1d1d;
+    font-family: 'Muli', sans-serif !important;
+    font-size: large;
+    font-variant: no-common-ligatures proportional-nums;
+}
+
+a {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+/* mouse over link */
+a:hover {
+    color: black;
+}
+
+/* selected link */
+a:active {
+    color: black;
 }
 
 .center-text {
@@ -13,17 +34,26 @@ body {
 
 /* LeftPanel */
 .Left-panel {
-    border-right: 2px solid #000000;
+    border-right: 4px solid #000000;
     color: #000000;
     text-decoration: none;
+    font-size: larger;
+    padding-left: 1.5%;
 }
-.heder-logo{
-    border-bottom: 2px solid #000000;
+
+.heder-logo {
+    border-bottom: 4px solid #000000;
 }
+
 .center {
     align-items: center;
     align-content: center;
     text-align: center;
+    padding-top: 2%;
+}
+
+.solbergText {
+    padding-left: 10%;
 }
 
 /*popup */
